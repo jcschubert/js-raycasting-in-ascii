@@ -1,0 +1,38 @@
+.container {
+    margin: 5em auto;
+    width: min-content;
+}
+
+h1 {
+    font-size: 2em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.4;
+}
+
+p {
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.4;
+}
+
+pre {
+    background : #000;
+    color: #eee;
+    width: min-content;
+    font-size: 12px;
+}
+
+#stats {
+    float: left;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#fps {
+    float: right;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#fps:after {
+    float: none;
+    clear: both;
+}
