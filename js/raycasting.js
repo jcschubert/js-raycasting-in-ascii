@@ -117,7 +117,7 @@ function tick(timestamp) {
     var newX = playerX + Math.sin(-playerAngle) * delta / 1000 * movementFactor;
     var newY = playerY + Math.cos(-playerAngle) * delta / 1000 * movementFactor;
 
-    if (map[Math.floor(newY) * mapWidth + Math.floor(newX)] != "#") {
+    if (map[Math.round(newY) * mapWidth + Math.round(newX)] != "#") {
       playerX = newX;
       playerY = newY;
     }
@@ -126,7 +126,7 @@ function tick(timestamp) {
     var newX = playerX - Math.sin(-playerAngle) * delta / 1000 * movementFactor;
     var newY = playerY - Math.cos(-playerAngle) * delta / 1000 * movementFactor;
 
-    if (map[Math.floor(newY) * mapWidth + Math.floor(newX)] != "#") {
+    if (map[Math.round(newY) * mapWidth + Math.round(newX)] != "#") {
       playerX = newX;
       playerY = newY;
     }
