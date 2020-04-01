@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div id="container" class="container">
     <h1>ASCII Raycasting Engine</h1>
     <p>A simple, retro wolfenstein-esque <a href="https://en.wikipedia.org/wiki/Ray_casting">Raycasting Demo</a>.
       Based on <em>javidx9's</em> <a href="https://www.youtube.com/watch?v=xW8skO7MFYw">version</a>, but ported
@@ -17,7 +17,9 @@
       <a href="#" id="dark-mode" class="active">Dark</a>
       <a href="#" id="light-mode">Light</a>
     </div>
-    <pre id="screen" class="dm"></pre>
+    <div class="screen-wrapper">
+    <pre id="screen" class="dm" width="120"></pre>
+    </div>
     <div id="stats"></div>
     <div id="fps"></div>
   </div>

@@ -1,5 +1,6 @@
 .container {
     margin: 5em auto;
+    width: 1200px;
     width: min-content;
 }
 
@@ -15,9 +16,12 @@ p {
     line-height: 1.4;
 }
 
-#screen {
+.screen-wrapper {
     width: min-content;
-    font-size: 12px;
+}
+
+#screen {
+    display: inline-block;
 }
 
 #screen.dm {
