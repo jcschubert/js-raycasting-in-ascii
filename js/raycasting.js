@@ -105,6 +105,8 @@ var dmButton = document.getElementById("dark-mode");
 var lmButton = document.getElementById("light-mode");
 
 dmButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
   lmButton.classList.remove("active");
   dmButton.classList.add("active");
   screen.classList.remove("lm");
@@ -112,6 +114,8 @@ dmButton.addEventListener("click", (e) => {
 });
 
 lmButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
   dmButton.classList.remove("active");
   lmButton.classList.add("active");
   screen.classList.remove("dm");
