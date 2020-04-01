@@ -5,6 +5,7 @@ var buffer2 = new Array(screenHeight).fill(null).map(() => Array(screenWidth));
 
 var stats = document.getElementById("stats");
 var stats2 = document.getElementById("fps");
+var mode = "dark";
 
 var map = "";
 map += "################";
@@ -98,7 +99,25 @@ document.addEventListener('keydown', (event) => {
       inputs.turnRight = true;
       break;
   }
-})
+});
+
+var dmButton = document.getElementById("dark-mode");
+var lmButton = document.getElementById("light-mode");
+
+dmButton.addEventListener("click", (e) => {
+  lmButton.classList.remove("active");
+  dmButton.classList.add("active");
+  screen.classList.remove("lm");
+  screen.classList.add("dm");
+});
+
+lmButton.addEventListener("click", (e) => {
+  dmButton.classList.remove("active");
+  lmButton.classList.add("active");
+  screen.classList.remove("dm");
+  screen.classList.add("lm");
+});
+
 
 function tick(timestamp) {
   if (!current) {
@@ -156,11 +175,25 @@ function tick(timestamp) {
       testX = Math.round(playerX + eyeX * distanceToWall);
       testY = Math.round(playerY + eyeY * distanceToWall);
 
-      // mark viewed square on map with a '.'
-      if(map[testY * mapWidth + testX] != "#") {
-        playerViewArea[testY][testX] = ".";
-      }
+      var tLowX = Math.floor(playerX + eyeX * distanceToWall);
+      var tHighX = Math.ceil(playerX + eyeX * distanceToWall);
 
+      var tLowY = Math.floor(playerY + eyeY * distanceToWall);
+      var tHighY = Math.ceil(playerY + eyeY * distanceToWall);
+
+      // mark viewed square on map with a '.'
+      if(map[tLowY * mapWidth + tLowX] != "#") {
+        playerViewArea[tLowY][tLowX] = ".";
+      }
+      if(map[tHighY * mapWidth + tLowX] != "#") {
+        playerViewArea[tHighY][tLowX] = ".";
+      }
+      if(map[tLowY * mapWidth + tHighX] != "#") {
+        playerViewArea[tLowY][tHighX] = ".";
+      }
+      if(map[tHighY * mapWidth + tHighX] != "#") {
+        playerViewArea[tHighY][tHighX] = ".";
+      }
 
       // test if ray is out of bounds
       if (testX < 0 || testX > mapWidth || testY < 0 || testY > mapHeight) {

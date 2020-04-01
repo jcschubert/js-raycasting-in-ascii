@@ -15,11 +15,19 @@ p {
     line-height: 1.4;
 }
 
-pre {
-    background : #000;
-    color: #eee;
+#screen {
     width: min-content;
     font-size: 12px;
+}
+
+#screen.dm {
+    color: #eee;
+    background: #111;
+}
+
+#screen.lm {
+    background: #fff;
+    color: #111;
 }
 
 #stats {
@@ -35,4 +43,32 @@ pre {
 #fps:after {
     float: none;
     clear: both;
+}
+
+#dark-mode,
+#light-mode {
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    width: min-content;
+    align-self: flex-end;
+    padding: 4px;
+    text-decoration: none;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+#dark-mode.active,
+#light-mode.active {
+    background: #000;
+    color: #fff;
+}
+
+#dark-mode:hover,
+#light-mode:hover {
+    border: 1px solid #000;
+    padding: 3px;
 }
